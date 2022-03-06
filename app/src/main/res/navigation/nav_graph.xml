@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.rickandmortycharacters.ui.fragments.HomeFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.example.rickandmortycharacters.ui.fragments.CharacterDetailsFragment"
+        android:label="CharacterDetailsFragment" >
+
+        <argument
+            app:argType="com.example.rickandmortycharacters.model.Character"
+            android:name="character"/>
+
+        <action
+            android:id="@+id/action_characterDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+</navigation>
